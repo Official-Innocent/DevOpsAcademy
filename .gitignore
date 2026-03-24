@@ -1,0 +1,17 @@
+# Virtual environments — never commit these
+devops-env/
+venv/
+.venv/
+env/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
