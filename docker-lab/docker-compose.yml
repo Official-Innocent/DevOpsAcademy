@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+  web:
+    build: .
+    container_name: devops-web
+    ports:
+      - "5000:5000"
+    environment:
+      - DEVELOPER_NAME=Innocent
+      - ENVIRONMENT=development
+      - DB_HOST=database
+      - DB_PORT=5432
+    depends_on:
+      - database
+      - redis
+    networks:
+      - app-network
+
+  database:
+    image: postgres:latest
+    container_name: devops-db
+    environment:
+      - POSTGRES_USER=devops
+      - POSTGRES_PASSWORD=devopspass
+      - POSTGRES_DB=myapp
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    networks:
+      - app-network
+
+  redis:
+    image: redis:latest
+    container_name: devops-redis
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
