@@ -20,6 +20,15 @@ You need Docker installed. Then:
 
 Open your browser at http://localhost:5000
 
+## Run from Docker Hub (no cloning needed)
+
+    docker run -p 5000:5000 innocentobuteofficial/camsync:latest
+
+Open http://localhost:5000 — that's it!
+
+## Docker Hub
+https://hub.docker.com/r/innocentobuteofficial/camsync
+
 ## Stop it
 
     docker compose down
